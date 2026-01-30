@@ -15,13 +15,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 32px 24px;
+      justify-content: center;
       user-select: none;
+      -webkit-app-region: drag;
     }
 
     .greeting {
       text-align: center;
-      margin-bottom: 8px;
+      margin-bottom: 24px;
     }
 
     .greeting h1 {
@@ -35,115 +36,19 @@
       margin-top: 4px;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      border-radius: 16px;
-      padding: 24px;
-      width: 100%;
-      max-width: 400px;
-      margin-top: 24px;
+    .weather {
+      text-align: center;
     }
 
-    .card h2 {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      opacity: 0.8;
-      margin-bottom: 16px;
-    }
-
-    .current {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-
-    .current .temp {
-      font-size: 48px;
+    .weather .temp {
+      font-size: 72px;
       font-weight: 300;
     }
 
-    .current .condition {
-      font-size: 16px;
-      opacity: 0.9;
-    }
-
-    .details {
-      display: flex;
-      gap: 24px;
-      font-size: 13px;
-      opacity: 0.8;
-      margin-bottom: 20px;
-    }
-
-    .divider {
-      border: none;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      margin: 16px 0;
-    }
-
-    .forecast-label {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      opacity: 0.7;
-      margin-bottom: 10px;
-    }
-
-    .forecast {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .forecast .high-low {
-      font-size: 20px;
-      font-weight: 500;
-    }
-
-    .forecast .info {
-      text-align: right;
-      font-size: 13px;
+    .weather .condition {
+      font-size: 18px;
       opacity: 0.85;
-    }
-
-    .city-input {
-      margin-top: 24px;
-      width: 100%;
-      max-width: 400px;
-      display: flex;
-      gap: 8px;
-    }
-
-    .city-input input {
-      flex: 1;
-      padding: 10px 16px;
-      border: none;
-      border-radius: 24px;
-      background: rgba(255, 255, 255, 0.2);
-      color: #fff;
-      font-size: 14px;
-      outline: none;
-    }
-
-    .city-input input::placeholder {
-      color: rgba(255, 255, 255, 0.5);
-    }
-
-    .city-input button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 24px;
-      background: rgba(255, 255, 255, 0.3);
-      color: #fff;
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    .city-input button:hover {
-      background: rgba(255, 255, 255, 0.4);
+      margin-top: 4px;
     }
 
     .error {
@@ -154,7 +59,6 @@
     }
 
     .loading {
-      margin-top: 24px;
       opacity: 0.7;
       font-size: 14px;
     }
@@ -166,9 +70,9 @@
     <div class="date" id="date-text"></div>
   </div>
 
-  <div id="weather-card" style="display: none; text-align: center; margin-top: 32px;">
-    <div class="temp" id="temp-text" style="font-size: 72px; font-weight: 300;"></div>
-    <div id="condition-text" style="font-size: 18px; opacity: 0.85; margin-top: 4px;"></div>
+  <div class="weather" id="weather-card" style="display: none;">
+    <div class="temp" id="temp-text"></div>
+    <div class="condition" id="condition-text"></div>
   </div>
 
   <div class="loading" id="loading">Loading weather...</div>

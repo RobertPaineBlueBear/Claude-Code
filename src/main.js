@@ -9,9 +9,13 @@ const __dirname = path.dirname(__filename);
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 480,
-    height: 520,
-    resizable: true,
+    width: 400,
+    height: 420,
+    resizable: false,
+    titleBarStyle: "hiddenInset",
+    trafficLightPosition: { x: 16, y: 16 },
+    backgroundColor: "#667eea",
+    show: false,
     webPreferences: {
       preload: path.join(__dirname, "preload.cjs"),
       contextIsolation: true,
@@ -21,6 +25,10 @@ function createWindow() {
 
   win.setMenuBarVisibility(false);
   win.loadFile(path.join(__dirname, "renderer", "index.html"));
+
+  win.once("ready-to-show", () => {
+    win.show();
+  });
 }
 
 ipcMain.handle("get-greeting", () => {
@@ -33,6 +41,14 @@ ipcMain.handle("get-weather", async (_event, city) => {
 
 app.whenReady().then(createWindow);
 
+app.on("activate", () => {
+  if (BrowserWindow.getAllWindows().length === 0) {
+    createWindow();
+  }
+});
+
 app.on("window-all-closed", () => {
-  app.quit();
+  if (process.platform !== "darwin") {
+    app.quit();
+  }
 });
