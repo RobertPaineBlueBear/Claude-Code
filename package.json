@@ -1,0 +1,13 @@
+{
+  "name": "morning-briefing",
+  "version": "1.0.0",
+  "description": "A personalized morning briefing app",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "briefing": "node src/index.js"
+  },
+  "type": "module",
+  "keywords": ["morning", "briefing", "weather"],
+  "license": "MIT"
+}
