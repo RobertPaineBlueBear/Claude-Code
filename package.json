@@ -1,13 +1,37 @@
 {
   "name": "morning-briefing",
-  "version": "1.0.0",
-  "description": "A personalized morning briefing app",
-  "main": "src/index.js",
+  "version": "2.0.0",
+  "description": "A personalized morning briefing desktop app",
+  "main": "src/main.js",
   "scripts": {
-    "start": "node src/index.js",
-    "briefing": "node src/index.js"
+    "start": "electron .",
+    "cli": "node src/cli.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.morning-briefing.app",
+    "productName": "Morning Briefing",
+    "files": [
+      "src/**/*"
+    ],
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "category": "Utility"
+    },
+    "mac": {
+      "target": ["dmg"],
+      "category": "public.app-category.weather"
+    },
+    "win": {
+      "target": ["nsis"]
+    }
   },
   "type": "module",
-  "keywords": ["morning", "briefing", "weather"],
-  "license": "MIT"
+  "keywords": ["morning", "briefing", "weather", "desktop"],
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  }
 }
