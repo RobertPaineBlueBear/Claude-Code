@@ -166,34 +166,13 @@
     <div class="date" id="date-text"></div>
   </div>
 
-  <div class="card" id="weather-card" style="display: none;">
-    <h2 id="location-text"></h2>
-    <div class="current">
-      <span class="temp" id="temp-text"></span>
-      <span class="condition" id="condition-text"></span>
-    </div>
-    <div class="details">
-      <span id="wind-text"></span>
-      <span id="humidity-text"></span>
-    </div>
-    <hr class="divider" />
-    <div class="forecast-label">Today's Forecast</div>
-    <div class="forecast">
-      <span class="high-low" id="highlow-text"></span>
-      <div class="info">
-        <div id="forecast-condition"></div>
-        <div id="precip-text"></div>
-      </div>
-    </div>
+  <div id="weather-card" style="display: none; text-align: center; margin-top: 32px;">
+    <div class="temp" id="temp-text" style="font-size: 72px; font-weight: 300;"></div>
+    <div id="condition-text" style="font-size: 18px; opacity: 0.85; margin-top: 4px;"></div>
   </div>
 
   <div class="loading" id="loading">Loading weather...</div>
   <div class="error" id="error" style="display: none;"></div>
-
-  <div class="city-input">
-    <input type="text" id="city-input" placeholder="Enter city name..." value="New York" />
-    <button id="refresh-btn">Go</button>
-  </div>
 
   <script src="renderer.js"></script>
 </body>
